@@ -37,7 +37,7 @@ handlers.sendInvite = function (args) {
     server.UpdateUserData({
     PlayFabId : playfabID,
     Data : {
-    	"room":roomID,
+    	room:roomID,
     }
     });
   }
