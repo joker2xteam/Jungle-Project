@@ -28,10 +28,9 @@
 // The following examples demonstrate all three options.
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
-handlers.invite = function (args) {
-  //log.debug("getPlayerOnline:", { input: args.inputValue });
-
-    return { validMove: input: args.inputValue };
+handlers.sendInvite = function (args) {
+  log.debug("sendInvite:", { input: args.inputValue });  
+    return { validMove: args.inputValue };
 }
 
 
