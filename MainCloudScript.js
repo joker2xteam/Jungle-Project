@@ -29,7 +29,7 @@
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 handlers.invite = function (args) {
-  log.debug("getPlayerOnline:", { input: args.inputValue });
+  //log.debug("getPlayerOnline:", { input: args.inputValue });
 
     return { validMove: input: args.inputValue };
 }
