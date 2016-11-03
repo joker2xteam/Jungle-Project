@@ -31,14 +31,14 @@
 handlers.sendInvite = function (args) {
 	var roomID = args.roomID;
   var listInvite = args.listInvite;
+  var dataPayload = {};
+  dataPayload["room"] = roomID;
   for(i=0;i<listInvite.length;i++){
   	//console.log(listInvite[i]);
     var playfabID = listInvite[i];
     server.UpdateUserData({
-    PlayFabId : playfabID,
-    Data : {
-    	room:roomID,
-    }
+      PlayFabId : playfabID,
+      Data : dataPayload
     });
   }
   return {Message:listInvite.length};
