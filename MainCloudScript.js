@@ -35,8 +35,8 @@ handlers.sendInvite = function (args) {
   	//console.log(listInvite[i]);
     var playfabID = listInvite[i];
     server.UpdateUserData({
-    PlayFabId = playfabID,
-    Data = {
+    PlayFabId : playfabID,
+    Data : {
     	"room":roomID,
     }
     });
