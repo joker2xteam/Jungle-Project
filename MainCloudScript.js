@@ -29,8 +29,19 @@
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 handlers.sendInvite = function (args) {
-  log.debug("sendInvite:", { input: args.inputValue });  
-    return { validMove: args.inputValue };
+	var roomID = args.roomID;
+  var listInvite = args.listInvite;
+  for(i=0;i<listInvite.length;i++){
+  	//console.log(listInvite[i]);
+    var playfabID = listInvite[i];
+    server.UpdateUserData({
+    PlayFabId = playfabID,
+    Data = {
+    	"room":roomID,
+    }
+    });
+  }
+  return {Message:listInvite.length};
 }
 
 
