@@ -34,13 +34,13 @@ var roomID = args.roomID;
   var listInvite1 = args.listInvite;
   var dataPayload = {};
   dataPayload["room"] = roomID;
-  for(i=0;i<listInvite1.length;i++){
-    var playfabID = listInvite[i];
+  //for(i=0;i<listInvite1.length;i++){
+    //var playfabID = listInvite[i];
     //server.UpdateUserData({
     //  PlayFabId : playfabID,
     //  Data : dataPayload
     //});
-  }
+  //}
   log.debug("sendInvite:", { input: args.listInvite });
   log.debug("sendInvite2:", { input2: dataPayload });
   return {Message:listInvite.length};
