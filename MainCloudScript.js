@@ -38,7 +38,7 @@ var roomID = args.roomID;
     var playfabID = listInvite[i];
     //server.UpdateUserData({
     //  PlayFabId : playfabID,
-      Data : dataPayload
+    //  Data : dataPayload
     //});
   }
   log.debug("sendInvite:", { input: args.listInvite });
