@@ -29,7 +29,7 @@
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 handlers.sendInvite = function (args) {
-log.debug("sendInvite:", { input: args.inputValue });
+
 var roomID = args.roomID;
   var listInvite1 = args.listInvite;
   var dataPayload = {};
@@ -41,6 +41,8 @@ var roomID = args.roomID;
       Data : dataPayload
     });
   }
+  log.debug("sendInvite:", { input: args.listInvite });
+  log.debug("sendInvite2:", { input2: dataPayload });
   return {Message:listInvite.length};
 }
 
