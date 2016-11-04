@@ -41,7 +41,7 @@ var roomID = args.roomID;
     //  Data : dataPayload
     //});
   //}
-  log.debug("sendInvite:", { input: args.listInvite });
+  log.debug("roomID:", { roomID: roomID });
   log.debug("sendInvite2:", { input2: dataPayload });
   log.debug("args",{args:args});
   return {Message:listInvite1.length};
