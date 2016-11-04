@@ -36,10 +36,10 @@ var roomID = args.roomID;
   dataPayload["room"] = roomID;
   for(i=0;i<listInvite1.length;i++){
     var playfabID = listInvite[i];
-    server.UpdateUserData({
-      PlayFabId : playfabID,
+    //server.UpdateUserData({
+    //  PlayFabId : playfabID,
       Data : dataPayload
-    });
+    //});
   }
   log.debug("sendInvite:", { input: args.listInvite });
   log.debug("sendInvite2:", { input2: dataPayload });
