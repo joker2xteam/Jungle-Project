@@ -29,7 +29,8 @@
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 handlers.sendInvite = function (args) {
-	var roomID = args.roomID;
+log.debug("sendInvite:", { input: args.inputValue });
+var roomID = args.roomID;
   var listInvite1 = args.listInvite;
   var dataPayload = {};
   dataPayload["room"] = roomID;
