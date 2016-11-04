@@ -43,7 +43,8 @@ var roomID = args.roomID;
   //}
   log.debug("sendInvite:", { input: args.listInvite });
   log.debug("sendInvite2:", { input2: dataPayload });
-  return {Message:listInvite.length};
+  log.debug("args",{args:args});
+  return {Message:listInvite1.length};
 }
 
 
