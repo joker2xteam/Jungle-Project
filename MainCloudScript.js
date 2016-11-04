@@ -35,7 +35,7 @@ var roomID = args.roomID;
   var dataPayload = {};
   dataPayload["room"] = roomID;
   for(i=0;i<listInvite1.length;i++){
-    var playfabID = listInvite[i];
+    var playfabID = listInvite1[i];
     server.UpdateUserData({
      PlayFabId : playfabID,
       Data : dataPayload
