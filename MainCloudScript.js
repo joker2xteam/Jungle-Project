@@ -49,6 +49,7 @@ var roomID = args.roomID;
       Data : dataPayload
     });
     log.debug("args"+playfabID,{args:inviteData});
+    log.debug("dataPayload"+playfabID,{args:dataPayload});
   }
   
   return {Message:listInvite1.length};
