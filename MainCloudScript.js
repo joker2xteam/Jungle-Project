@@ -34,9 +34,7 @@ var roomID = args.roomID;
   var listInvite1 = args.listInvite;
   var senderName = args.sender;
   var dataPayload = {};
-  var inviteData =[];
-  inviteData[0] ={"roomID":roomID,"sender":senderName};
-  dataPayload["Invites"] = inviteData;
+  dataPayload["Invite_"+roomID] = senderName;
   for(i=0;i<listInvite1.length;i++){
     var playfabID = listInvite1[i];
     server.UpdateUserData({
