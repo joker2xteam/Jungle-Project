@@ -42,8 +42,9 @@ var roomID = args.roomID;
       Keys:"Invites"
     });  
     var userData =inviteData["Data"];
-    //userData.push({"roomID":roomID,"sender":senderName});
-    dataPayload["Invites"] = userData;
+    var obj = JSON.parse(userData);
+    obj.push({"roomID":roomID,"sender":senderName});
+    dataPayload["Invites"] = obj;
     server.UpdateUserData({
      PlayFabId : playfabID,
       Data : dataPayload
