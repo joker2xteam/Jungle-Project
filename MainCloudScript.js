@@ -33,16 +33,16 @@ handlers.sendInvite = function (args) {
 var roomID = args.roomID;
   var listInvite1 = args.listInvite;
   var senderName = args.sender;
-  var dataPayload = {};
-  var inviteData =server.GetUserData({
-    PlayFabId: currentPlayerId,
-    Keys:"Invites"
-  });  
-  inviteData[inviteData.length+1] ={"roomID":roomID,"sender":senderName};
+  var dataPayload = {}; 
   
-  dataPayload["Invites"] = inviteData;
   for(i=0;i<listInvite1.length;i++){
-    var playfabID = listInvite1[i];
+    var playfabID = listInvite1[i];    
+    var inviteData =server.GetUserData({
+      PlayFabId: playfabID,
+      Keys:"Invites"
+    });  
+    inviteData[inviteData.length+1] ={"roomID":roomID,"sender":senderName};  
+    dataPayload["Invites"] = inviteData;
     server.UpdateUserData({
      PlayFabId : playfabID,
       Data : dataPayload
