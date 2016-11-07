@@ -28,31 +28,40 @@
 // The following examples demonstrate all three options.
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
-handlers.sendInvite = function (args) {
+
+handlers.removeInvite = function (args) {
 
 var roomID = args.roomID;
   var listInvite1 = args.listInvite;
   var senderName = args.sender;
-  var dataPayload = {}; 
-  
+  var dataPayload = {};
+  dataPayload["Invite_"+roomID] = senderName;
   for(i=0;i<listInvite1.length;i++){
-    var playfabID = listInvite1[i];    
-    var inviteData =server.GetUserData({
-      PlayFabId: playfabID,
-      Keys:"Invites"
-    });  
-    var userData =inviteData["Data"];
-    var obj = JSON.parse(userData);
-    obj.push({"roomID":roomID,"sender":senderName});
-    dataPayload["Invites"] = obj;
+    var playfabID = listInvite1[i];
     server.UpdateUserData({
      PlayFabId : playfabID,
       Data : dataPayload
     });
-    log.debug("args"+playfabID,{args:inviteData});
-    log.debug("dataPayload"+playfabID,{args:dataPayload});
   }
-  
+  log.debug("args",{args:args});
+  return {Message:listInvite1.length};
+}
+
+
+handlers.sendInvite = function (args) {
+var roomID = args.roomID;
+  var listInvite1 = args.listInvite;
+  var senderName = args.sender;
+  var dataPayload = {};
+  dataPayload["Invite_"+roomID] = senderName;
+  for(i=0;i<listInvite1.length;i++){
+    var playfabID = listInvite1[i];
+    server.UpdateUserData({
+     PlayFabId : playfabID,
+      Data : dataPayload
+    });
+  }
+  log.debug("args",{args:args});
   return {Message:listInvite1.length};
 }
 
@@ -62,7 +71,16 @@ handlers.getPlayerOnline = function (args) {
     var validMove = server.GetPlayersInSegment({
       SegmentId:"F3717A87C3D07BB9"
     });
-    return { validMove: validMove };
+    var PlayerProfiles =  validMove["PlayerProfiles"];
+  var response = [];  
+  for(i=0;i<PlayerProfiles.length;i++){
+    var user = PlayerProfiles[i];
+    var playerId = user["PlayerId"];
+    var displayName = user["DisplayName"];
+    response.push({playerId:playerId,displayName:displayName});
+  }
+  
+    return { validMove: response };
 }
 
 
@@ -327,3 +345,4 @@ handlers.RoomEventRaised = function (args) {
             break;
     }
 }
+
