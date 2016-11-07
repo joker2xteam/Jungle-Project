@@ -34,7 +34,13 @@ var roomID = args.roomID;
   var listInvite1 = args.listInvite;
   var senderName = args.sender;
   var dataPayload = {};
-  dataPayload["Invite_"+roomID] = senderName;
+  var inviteData =server.GetUserData({
+    PlayFabId: currentPlayerId,
+    Keys:"Invites"
+  });  
+  inviteData[inviteData.length+1] ={"roomID":roomID,"sender":senderName};
+  
+  dataPayload["Invites"] = inviteData;
   for(i=0;i<listInvite1.length;i++){
     var playfabID = listInvite1[i];
     server.UpdateUserData({
