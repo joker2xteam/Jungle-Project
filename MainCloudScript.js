@@ -42,7 +42,7 @@ var roomID = args.roomID;
       Keys:"Invites"
     });  
     var userData =inviteData["Data"];
-    userData.push({"roomID":roomID,"sender":senderName});
+    //userData.push({"roomID":roomID,"sender":senderName});
     dataPayload["Invites"] = userData;
     server.UpdateUserData({
      PlayFabId : playfabID,
