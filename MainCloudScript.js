@@ -32,8 +32,11 @@ handlers.sendInvite = function (args) {
 
 var roomID = args.roomID;
   var listInvite1 = args.listInvite;
+  var senderName = args.sender;
   var dataPayload = {};
-  dataPayload["room"] = roomID;
+  var inviteData =[];
+  inviteData[0] ={"roomID":roomID,"sender":senderName};
+  dataPayload["Invites"] = inviteData;
   for(i=0;i<listInvite1.length;i++){
     var playfabID = listInvite1[i];
     server.UpdateUserData({
