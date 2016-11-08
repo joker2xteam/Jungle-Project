@@ -77,7 +77,7 @@ handlers.getPlayerOnline = function (args) {
     var user = PlayerProfiles[i];
     var playerId = user["PlayerId"];
     var displayName = user["DisplayName"];
-    response.push({playerId:playerId,displayName:displayName});
+    response.push({id:playerId,name:displayName});
   }
   
     return { validMove: response };
